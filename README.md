@@ -11,7 +11,7 @@
 
 # Why React Native?
 * Facebook and Instagram mobile app were built on top of it
-* Using OS specific features.
+* You are using OS specific features.
 * You prefer to code in notepad++ / sublime / atom / emacs / vim
 * You love javascript
 * Different codebase for android and IOS?

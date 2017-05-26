@@ -1,11 +1,12 @@
-# Developing mobile app
+# Ways to develop mobile apps:
 * Native
     - Android studio + emulator + gradle + etc (recommended: 8 GB RAM)
 * Hybrid
     - Ionic: Basically using web view
 * Native app
     - Native Script: Purely in javascript, compiled into native app
-        - Same codebase for both IOS and android (sounds good, but has it's own drawback)
+        - Same codebase for both IOS and android
+        - Consequently 0nly works on feature-intersection of IOS and android
     - __React Native__: Different codebase for android and android.
 
 # Why React Native?
@@ -14,7 +15,7 @@
 * You prefer to code in notepad++ / sublime / atom / emacs / vim
 * You love javascript
 * Different codebase for android and IOS?
-    - Not really.
+    - Not really. You can use `import`.
 
 # Preparation - Installation
 * Ensure you have android SDK, Node JS, and NPM installed
@@ -44,7 +45,7 @@ export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
 # Preparation (Alternative)
 * Connect to internet
-* Open up https://facebook.github.io/react-native/docs/tutorial.html
+* Open up [https://facebook.github.io/react-native/docs/tutorial.html](https://facebook.github.io/react-native/docs/tutorial.html)
 * Start to code there
 
 # Code 01 - Hello world
@@ -63,8 +64,14 @@ export default class myApp extends Component {
 AppRegistry.registerComponent('myApp', () => myApp);
 ```
 
-* jsx
+* This funny xml like thing: `<Text>Hello World</Text>` is called jsx. And no, it is not HTML
 * Anonymous function
+```javascript
+// this one:
+function(a,b){return a+b;}
+// is similar to:
+(a,b) => {return a+b;}
+```
 
 # Code 02 - properties
 ```javascript
@@ -76,10 +83,10 @@ return(
     <Image source={pic} style={{width: 193, height: 110}}/>
 );
 ```
-* variable
-* json
+* variable: you can use `{any_javascript}` in your jsx
+* json: jsx also knows json. Look at how I define style in `<Image />`
 
-# Code 03 - props
+# Code 03 - props (taken from the react native tutorial)
 ```javascript
 import React, { Component } from 'react';
 import { AppRegistry, Text, View } from 'react-native';
@@ -107,8 +114,10 @@ class LotsOfGreetings extends Component {
 AppRegistry.registerComponent('LotsOfGreetings', () => LotsOfGreetings);
 ```
 * props are read only
+* You can create an instance of a `Greeting` class by typing `<Greeting />` in your jsx
+* You can also assign initial props to your instance by doing this `<Greeting name="Rexxar" />`
 
-# Code 04 - state
+# Code 04 - state (also taken from official react native tutorial)
 ```javascript
 class Blink extends Component {
   constructor(props) {
@@ -129,9 +138,10 @@ class Blink extends Component {
   }
 }
 ```
-* states are not read only
+* states are changeable
+* Even if you can do `this.state.showText = !this.state.showText`, in most cases you won't do that. Instead you will do `this.setState({ showText: !this.state.showText });` because this will also re-render the objects.
 
-# Code 05 - funny example
+# Code 05 - funny example (also taken from official react native tutorial)
 ```javascript
 import React, { Component } from 'react';
 import { AppRegistry, Text, TextInput, View } from 'react-native';
@@ -160,3 +170,14 @@ class PizzaTranslator extends Component {
 
 AppRegistry.registerComponent('PizzaTranslator', () => PizzaTranslator);
 ```
+
+# Code 06 - super calculator
+
+It's [here](https://github.com/goFrendiAsgard/learn-react-native/blob/master/myApp/index.android.js)
+
+# Further reading
+
+* React native tutorial: [https://facebook.github.io/react-native/docs/tutorial.html](https://facebook.github.io/react-native/docs/tutorial.html)
+* React tutorial: [https://facebook.github.io/react/docs/tutorial.html](https://facebook.github.io/react/docs/tutorial.html)
+* Javascript ES6: [https://www.frontendjournal.com/javascript-es6-learn-important-features-in-a-few-minutes/](https://www.frontendjournal.com/javascript-es6-learn-important-features-in-a-few-minutes/)
+
